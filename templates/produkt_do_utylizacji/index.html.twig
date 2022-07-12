@@ -3,17 +3,17 @@
 {% block title %}ProduktDoUtylizacji index{% endblock %}
 
 {% block body %}
-    <h1>ProduktDoUtylizacji index</h1>
+
 
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Nazwa</th>
-                <th>NumerSeryjny</th>
-                <th>DataProdukcji</th>
-                <th>PlanowanaDataUtylizacji</th>
-                <th>CzyZostaloZutylizowane</th>
+                <th>Numer Seryjny</th>
+                <th>Data Produkcji</th>
+                <th>Planowana Data Utylizacji</th>
+                <th>Czy Zostało Zutylizowane</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -28,6 +28,7 @@
                 <td>{{ produkt_do_utylizacji.CzyZostaloZutylizowane ? 'Yes' : 'No' }}</td>
                 <td>
                     <a href="{{ path('app_produkt_do_utylizacji_show', {'id': produkt_do_utylizacji.id}) }}">show</a>
+                    <a href="{{ path('app_zmienc', {'id': produkt_do_utylizacji.id}) }}">Zmień status utylizacji</a>
                     <a href="{{ path('app_produkt_do_utylizacji_edit', {'id': produkt_do_utylizacji.id}) }}">edit</a>
                 </td>
             </tr>

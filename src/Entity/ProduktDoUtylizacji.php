@@ -92,4 +92,14 @@ class ProduktDoUtylizacji
 
         return $this;
     }
+    public function random():?bool
+    {
+        if ($this->isCzyZostaloZutylizowane()) {
+            return 0;
+
+        }
+        else
+            return 1;
+
+    }
 }
