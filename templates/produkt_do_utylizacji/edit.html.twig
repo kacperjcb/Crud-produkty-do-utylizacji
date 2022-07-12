@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit ProduktDoUtylizacji{% endblock %}
+
+{% block body %}
+    <h1>Edit ProduktDoUtylizacji</h1>
+
+    {{ include('produkt_do_utylizacji/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_produkt_do_utylizacji_index') }}">back to list</a>
+
+    {{ include('produkt_do_utylizacji/_delete_form.html.twig') }}
+{% endblock %}

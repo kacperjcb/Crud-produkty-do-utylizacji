@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ProduktDoUtylizacji index{% endblock %}
+
+{% block body %}
+    <h1>ProduktDoUtylizacji index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nazwa</th>
+                <th>NumerSeryjny</th>
+                <th>DataProdukcji</th>
+                <th>PlanowanaDataUtylizacji</th>
+                <th>CzyZostaloZutylizowane</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for produkt_do_utylizacji in produkt_do_utylizacjis %}
+            <tr>
+                <td>{{ produkt_do_utylizacji.id }}</td>
+                <td>{{ produkt_do_utylizacji.nazwa }}</td>
+                <td>{{ produkt_do_utylizacji.numerSeryjny }}</td>
+                <td>{{ produkt_do_utylizacji.dataProdukcji ? produkt_do_utylizacji.dataProdukcji|date('Y-m-d') : '' }}</td>
+                <td>{{ produkt_do_utylizacji.PlanowanaDataUtylizacji ? produkt_do_utylizacji.PlanowanaDataUtylizacji|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ produkt_do_utylizacji.CzyZostaloZutylizowane ? 'Yes' : 'No' }}</td>
+                <td>
+                    <a href="{{ path('app_produkt_do_utylizacji_show', {'id': produkt_do_utylizacji.id}) }}">show</a>
+                    <a href="{{ path('app_produkt_do_utylizacji_edit', {'id': produkt_do_utylizacji.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_produkt_do_utylizacji_new') }}">Create new</a>
+{% endblock %}
