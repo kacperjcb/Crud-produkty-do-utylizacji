@@ -1,6 +1,6 @@
 How to install: <br>
 Clone repository <br>
-use command: <br>
+use commands: <br>
 composer install <br>
 php bin/console doctrine:database:create <br>
 php bin/console make:migration <br>
