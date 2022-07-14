@@ -1,4 +1,13 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+Nazwa produktu: <br>
+{{ form_widget(form.nazwa) }} <br>
+Numer seryjny: <br>
+{{ form_widget(form.numerSeryjny) }} <br>
+Data produkcji:
+{{ form_widget(form.dataProdukcji) }}
+Planowana data i godzina utylizacji:
+{{ form_widget(form.PlanowanaDataUtylizacji) }}
+Czy produkt został zutylizowany
+{{ form_widget(form.CzyZostaloZutylizowane) }} <br>
+    <button class="btn">{{ button_label|default('Zapisz') }}</button>
 {{ form_end(form) }}

@@ -22,8 +22,9 @@ class ProduktDoUtylizacji
     #[ORM\Column(type: 'date')]
     private $dataProdukcji;
 
-    #[ORM\Column(type: 'datetime')]
+    #[ORM\Column(type: 'datetime', nullable: true)]
     private $PlanowanaDataUtylizacji;
+
 
     #[ORM\Column(type: 'boolean')]
     private $CzyZostaloZutylizowane;
@@ -92,14 +93,17 @@ class ProduktDoUtylizacji
 
         return $this;
     }
-    public function random():?bool
+
+    public function change(): ?bool
     {
         if ($this->isCzyZostaloZutylizowane()) {
+            $this->PlanowanaDataUtylizacji = null;
             return 0;
 
-        }
-        else
+        } else {
+            $this->setPlanowanaDataUtylizacji((new \DateTime()));
             return 1;
-
+        }
     }
+
 }

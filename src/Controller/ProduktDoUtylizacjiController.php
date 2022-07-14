@@ -71,7 +71,7 @@ class ProduktDoUtylizacjiController extends AbstractController
     }
 
     #[Route('{id}/zmien', name: 'app_zmien', methods: ['GET', 'POST'])]
-    public function zmienproduct(ManagerRegistry $doctrine, int $id): Response
+    public function zmien(ManagerRegistry $doctrine, int $id): Response
     {
         {
             $entityManager = $doctrine->getManager();
@@ -82,15 +82,8 @@ class ProduktDoUtylizacjiController extends AbstractController
                     'No product found for id ' . $id
                 );
             }
-
-
-
-
-
-            $ProductDoUtylizacji->setCzyZostaloZutylizowane($ProductDoUtylizacji->random());
-
+            $ProductDoUtylizacji->setCzyZostaloZutylizowane($ProductDoUtylizacji->change());
             $entityManager->flush();
-
 
             return $this->redirectToRoute('app_produkt_do_utylizacji_index');
         }
@@ -105,4 +98,6 @@ class ProduktDoUtylizacjiController extends AbstractController
 
         return $this->redirectToRoute('app_produkt_do_utylizacji_index', [], Response::HTTP_SEE_OTHER);
     }
+
+
 }

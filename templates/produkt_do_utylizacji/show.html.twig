@@ -3,7 +3,7 @@
 {% block title %}ProduktDoUtylizacji{% endblock %}
 
 {% block body %}
-    <h1>ProduktDoUtylizacji</h1>
+
 
     <table class="table">
         <tbody>
@@ -34,9 +34,9 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_produkt_do_utylizacji_index') }}">back to list</a>
-
-    <a href="{{ path('app_produkt_do_utylizacji_edit', {'id': produkt_do_utylizacji.id}) }}">edit</a>
-
+    <a href="{{ path('app_produkt_do_utylizacji_index') }}">Wróć do listy</a>
+    {% if (is_granted('ROLE_ADMIN'))%}
+    <a href="{{ path('app_produkt_do_utylizacji_edit', {'id': produkt_do_utylizacji.id}) }}">Edytuj</a>
+        {%endif%}
     {{ include('produkt_do_utylizacji/_delete_form.html.twig') }}
 {% endblock %}
