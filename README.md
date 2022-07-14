@@ -1,5 +1,3 @@
-# Crud-produkty-do-utylizacji
-CRUD który pozwala na zarządzanie produktami które trafiają do utylizacji. Możemy wpisać nazwę produktu, numer seryjny, datę produkcji produktu oraz przewidywaną datę kiedy jakiś produkt ma trafić do utylizacji. 
 How to install: <br>
 Clone repository <br>
 use command: <br>
